@@ -8,6 +8,7 @@ def test_transform_chunk_lowercases_columns():
     chunk = pd.DataFrame({
         'VendorID': [1, 2],
         'passenger_count': [1, 2],
+        'RatecodeID': [1, 1, 2],
         'trip_distance': [1.2, 3.4],
     })
     result = app.transform_chunk(chunk)
