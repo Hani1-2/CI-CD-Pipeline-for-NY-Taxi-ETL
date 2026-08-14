@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS yellow_taxi_data (
 # Columns that should end up as nullable integers in Postgres.
 # Pandas' "Int64" (capital I) is the nullable integer dtype - it tolerates
 # NaNs, unlike plain int64, and won't leave stray ".0" floats behind.
-INT_COLUMNS = ['vendrid', 'passenger_count', 'ratecodeid', 'payment_type']
+INT_COLUMNS = ['vendorid', 'passenger_count', 'ratecodeid', 'payment_type']
 DATE_COLUMNS = ['tpep_pickup_datetime', 'tpep_dropoff_datetime']
 
 
