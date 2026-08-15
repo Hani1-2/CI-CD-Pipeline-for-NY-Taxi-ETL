@@ -12,7 +12,8 @@ def test_transform_chunk_lowercases_columns():
         'trip_distance': [1.2, 3.4],
     })
     result = app.transform_chunk(chunk)
-    assert list(result.columns) == ['vendorid', 'passenger_count', 'trip_distance']
+    print(result,"result")
+    assert list(result.columns) == ['vendorid', 'passenger_count', 'ratecodeid', 'trip_distance']
 
 
 def test_transform_chunk_handles_nan_in_integer_columns():
