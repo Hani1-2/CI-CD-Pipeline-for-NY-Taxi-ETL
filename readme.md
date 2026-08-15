@@ -31,7 +31,7 @@ CSV file (data/) --> app.py (pandas, chunked read) --> PostgreSQL --> pgAdmin (b
 - [Docker](https://docs.docker.com/get-docker/) and Docker Compose
 - Python 3.11 (only needed if you want to run tests or the app outside Docker)
 - A GitHub account (for forking/pushing and using GitHub Actions)
-- The taxi trip CSV, e.g. `yellow_tripdata_2015-01.csv`, downloaded from the [NYC TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) page
+- The taxi trip CSV, e.g. `yellow_tripdata_2015-01.csv`, downloaded from the [NYC Yellow Taxi Trip Data](https://www.kaggle.com/datasets/elemento/nyc-yellow-taxi-trip-data) 
 
 ## Local Setup
 
