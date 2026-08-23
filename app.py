@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from sqlalchemy import create_engine, text
 
+# lets test the CI/Cd pipeline
 DB_HOST = os.environ.get('DB_HOST', 'postgres')
 DB_PORT = os.environ.get('DB_PORT', '5432')
 DB_NAME = os.environ.get('DB_NAME', 'postgres')
@@ -53,19 +54,19 @@ def create_table(engine):
 
 
 def transform_chunk(chunk):
-    """Clean one raw CSV chunk so it's safe to insert into Postgres.
-
-    - lowercases column names to match the table's folded identifiers
-    - casts known integer columns to pandas' nullable Int64 dtype so
-      NaNs don't force the column to float64 (which would otherwise
-      clash with the INTEGER columns in Postgres)
-    """
+    """Clean one raw CSV chunk so it's safe to insert into Postgres."""
     chunk = chunk.copy()
     chunk.columns = [c.lower() for c in chunk.columns]
 
     for col in INT_COLUMNS:
-        if col in chunk.columns:
-            chunk[col] = chunk[col].astype('Int64')
+        if col not in chunk.columns:
+            raise ValueError(
+                f"Expected integer column '{col}' not found in this chunk. "
+                f"Found columns: {sorted(chunk.columns)}. "
+                f"This usually means a typo in INT_COLUMNS or a schema change "
+                f"in the source CSV."
+            )
+        chunk[col] = chunk[col].astype('Int64')
 
     return chunk
 
