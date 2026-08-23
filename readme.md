@@ -1,4 +1,4 @@
-# NYC Yellow Taxi ETL Pipeline
+# NYC Yellow Taxi ETL Pipelinee
 
 A Dockerized ETL pipeline that loads NYC Yellow Taxi trip data into PostgreSQL, wired into a full CI/CD workflow with GitHub Actions. Built as a teaching project covering practical DevOps and data engineering patterns end-to-end: containerization, automated testing, integration testing against a real database, and automated image publishing.
 
@@ -99,8 +99,6 @@ The test suite (`test_app.py`) covers the pure-Python transform logic without ne
    You should see tests covering:
    - Column lowercasing (`test_transform_chunk_lowercases_columns`)
    - Nullable integer handling for missing values (`test_transform_chunk_handles_nan_in_integer_columns`)
-   - Input immutability (`test_transform_chunk_does_not_mutate_input`)
-   - Graceful handling of missing expected columns
    - The `CREATE TABLE` SQL defining expected columns
    - `load_data` raising `FileNotFoundError` for a missing CSV
    - `get_engine` correctly building a connection URL from env vars
